@@ -40,9 +40,7 @@ export function Journeys({journeys, mapName}) {
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-            <Progress percent={percent} indicating/>
-
-            <Step.Group widths={arrayLength}>
+            <Step.Group widths={arrayLength} attached='bottom'>
                 {
                     journeys.map((journeyArray, index) => (
                         <Step key={index} active={isActive(index)} completed={isCompleted(index)}>
@@ -62,7 +60,23 @@ export function Journeys({journeys, mapName}) {
             <Segment attached>
                 <Journey journey={currentJourney} mapName={mapName}/>
             </Segment>
-
+            <br/>
+            <Grid>
+                <Grid.Row columns={2}>
+                    <Grid.Column width={13}>
+                        <Progress percent={percent} indicating/>
+                    </Grid.Column>
+                    <Grid.Column width={3}>
+                        <Container textAlign='right'>
+                            <Button.Group>
+                                <Button primary onClick={prev} disabled={isBackDisabled}> <Icon name='left chevron'/> Back</Button>
+                                <Button.Or/>
+                                <Button primary onClick={next} disabled={isNextDisabled}>Next <Icon name='right chevron'/></Button>
+                            </Button.Group>
+                        </Container>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
         </>
             :
             <p>Error: No journeys defined.</p>

@@ -14,7 +14,7 @@ export function Stepbody({step}) {
                 <Container textAlign='right'>
                     <Link href={`/journeys/${step.id}`}>
                         <a>
-                            <Button primary>
+                            <Button>
                                 More
                                 <Icon name='right chevron'/>
                             </Button>

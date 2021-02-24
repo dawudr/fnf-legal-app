@@ -11,6 +11,7 @@
     "govuk-frontend": "^3.11.0",
     "moment": "^2.29.1",
     "next": "^10.0.7",
+    "nprogress": "^0.2.0",
     "postcss": "^8.2.6",
     "postcss-cli": "^8.3.1",
     "react": "^17.0.1",

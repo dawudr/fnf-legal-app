@@ -22,7 +22,7 @@ export function Steps({steps}) {
     return (
         (arrayLength > 0 )?
         <>
-            <Grid divided='vertically'>
+            <Grid>
                 <Grid.Row columns={2}>
                     <Grid.Column>
                         <p>Navigate through the following steps to progress through the court process.</p>
@@ -38,9 +38,6 @@ export function Steps({steps}) {
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-
-            <Progress percent={percent} indicating/>
-
 
             <Grid columns={2}>
                 <Grid.Row stretched>
@@ -73,7 +70,22 @@ export function Steps({steps}) {
                 </Grid.Column>
                 </Grid.Row>
             </Grid>
-            &nbsp;
+            <Grid>
+                <Grid.Row columns={2}>
+                    <Grid.Column width={13}>
+                        <Progress percent={percent} indicating/>
+                    </Grid.Column>
+                    <Grid.Column width={3}>
+                        <Container textAlign='right'>
+                            <Button.Group>
+                                <Button primary onClick={prev} disabled={isBackDisabled}> <Icon name='left chevron'/> Back</Button>
+                                <Button.Or/>
+                                <Button primary onClick={next} disabled={isNextDisabled}>Next <Icon name='right chevron'/></Button>
+                            </Button.Group>
+                        </Container>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
         </>
         :
     <p>Error: No items defined.</p>

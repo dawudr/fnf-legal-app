@@ -12,8 +12,8 @@ export function Journey({journey}) {
                 <Container textAlign='right'>
                     <Link href={`/journeys/${journey.journey.id}`}>
                         <a>
-                            <Button primary>
-                                Start here
+                            <Button>
+                                More
                                 <Icon name='right chevron'/>
                             </Button>
                         </a>
