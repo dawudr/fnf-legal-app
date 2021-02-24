@@ -63,10 +63,10 @@ export function Journeys({journeys, mapName}) {
             <br/>
             <Grid>
                 <Grid.Row columns={2}>
-                    <Grid.Column width={13}>
+                    <Grid.Column width={12}>
                         <Progress percent={percent} indicating/>
                     </Grid.Column>
-                    <Grid.Column width={3}>
+                    <Grid.Column width={4}>
                         <Container textAlign='right'>
                             <Button.Group>
                                 <Button primary onClick={prev} disabled={isBackDisabled}> <Icon name='left chevron'/> Back</Button>
