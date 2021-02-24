@@ -71,11 +71,11 @@ export function Steps({steps}) {
                 </Grid.Row>
             </Grid>
             <Grid>
-                <Grid.Row columns={2}>
-                    <Grid.Column width={12}>
+                <Grid.Row>
+                    <Grid.Column>
                         <Progress percent={percent} indicating/>
                     </Grid.Column>
-                    <Grid.Column width={4}>
+                    <Grid.Column>
                         <Container textAlign='right'>
                             <Button.Group>
                                 <Button primary onClick={prev} disabled={isBackDisabled}> <Icon name='left chevron'/> Back</Button>
