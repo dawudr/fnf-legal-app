@@ -1,30 +1,68 @@
-import Container from './container'
-import { EXAMPLE_PATH } from '@/lib/constants'
+import { SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/constants'
+import {Container, Header} from 'semantic-ui-react'
+import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-accent-1 border-t border-accent-2">
-      <Container>
-        <div className="py-28 flex flex-col lg:flex-row items-center">
-          <h3 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Statically Generated with Next.js.
-          </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a
-              href="https://nextjs.org/docs/basic-features/pages"
-              className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
-            >
-              Read Documentation
-            </a>
-            <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
-              className="mx-3 font-bold hover:underline"
-            >
-              View on GitHub
-            </a>
+      <footer className="govuk-footer app-footer app-footer--full" role="contentinfo">
+          <Container>
+          <div className="app-width-container">
+
+                  <div className="govuk-footer__meta">
+                      <div className="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+                          <h2 className="govuk-visually-hidden">Support links</h2>
+
+                          <ul className="govuk-footer__inline-list">
+
+                              <li className="govuk-footer__inline-list-item">
+                                  <a className="govuk-footer__link" href="/accessibility">
+                                      Accessibility
+                                  </a>
+                              </li>
+
+                              <li className="govuk-footer__inline-list-item">
+                                  <a className="govuk-footer__link" href="/sitemap">
+                                      Sitemap
+                                  </a>
+                              </li>
+
+                              <li className="govuk-footer__inline-list-item">
+                                  <a className="govuk-footer__link" href="/disclaimer">
+                                      Disclaimer
+                                  </a>
+                              </li>
+
+                              <li className="govuk-footer__inline-list-item">
+                                  <a className="govuk-footer__link" href="/privacy-policy">
+                                      Privacy policy
+                                  </a>
+                              </li>
+
+                          </ul>
+
+
+                          <div className="govuk-footer__meta-custom">
+                              Built by the <a href="/design-system-team" className="govuk-footer__link">{SITE_NAME} team</a>
+                          </div>
+
+                      </div>
+                      <div className="govuk-footer__meta-item">
+                          <Link href="/">
+                              <Header as='h1' image='/images/120x80px-fnf-logo.png' content={SITE_NAME}/>
+                          </Link>
+                          © 2021 All Rights Reserved
+                      </div>
+
+
+
+                  </div>
           </div>
-        </div>
-      </Container>
-    </footer>
-  )
+          </Container>
+      </footer>
+      )
+
 }
+
+
+

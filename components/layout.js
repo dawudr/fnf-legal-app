@@ -1,16 +1,24 @@
-import Alert from './alert'
-import Footer from './footer'
-import Meta from './meta'
+import CustomHeader from '@/components/customheader'
+import Footer from '@/components/footer'
+import { SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/constants'
+import Navbar from '@/components/navbar'
+import { Container} from 'semantic-ui-react'
 
-export default function Layout({ preview, children }) {
-  return (
-    <>
-      <Meta />
-      <div className="min-h-screen">
-        <Alert preview={preview} />
-        <main>{children}</main>
-      </div>
-      <Footer />
-    </>
-  )
+export default function Layout({ children }) {
+    return (
+        <>
+            <CustomHeader/>
+
+            <Navbar/>
+
+            <Container>
+
+            <main>
+                {children}
+            </main>
+
+            </Container>
+            <Footer />
+        </>
+    )
 }

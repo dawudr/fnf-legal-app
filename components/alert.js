@@ -1,15 +1,9 @@
-import Container from './container'
+import {Container} from 'semantic-ui-react'
 import cn from 'classnames'
-import { EXAMPLE_PATH } from '@/lib/constants'
 
 export default function Alert({ preview }) {
   return (
-    <div
-      className={cn('border-b', {
-        'bg-accent-7 border-accent-7 text-white': preview,
-        'bg-accent-1 border-accent-2': !preview,
-      })}
-    >
+    <div>
       <Container>
         <div className="py-2 text-center text-sm">
           {preview ? (
@@ -25,14 +19,16 @@ export default function Alert({ preview }) {
             </>
           ) : (
             <>
-              The source code for this blog is{' '}
-              <a
-                href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
-                className="underline hover:text-success duration-200 transition-colors"
-              >
-                available on GitHub
-              </a>
-              .
+                <div className="govuk-phase-banner">
+                    <p className="govuk-phase-banner__content">
+                        <strong className="govuk-tag govuk-phase-banner__content__tag">
+                            alpha
+                        </strong>
+                        <span className="govuk-phase-banner__text">
+                            This is a new service – your <a className="govuk-link" href="#">feedback</a> will help us to improve it.
+                       </span>
+                    </p>
+                </div>
             </>
           )}
         </div>

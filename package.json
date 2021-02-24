@@ -1,25 +1,29 @@
 {
-  "name": "cms-strapi",
+  "name": "fnf-legal-app",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
-    "classnames": "2.2.6",
-    "date-fns": "2.14.0",
-    "isomorphic-unfetch": "3.0.0",
-    "next": "latest",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "date-fns": "^2.17.0",
+    "govuk-frontend": "^3.11.0",
+    "moment": "^2.29.1",
+    "next": "^10.0.7",
+    "postcss": "^8.2.6",
+    "postcss-cli": "^8.3.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "remark": "12.0.0",
-    "remark-html": "11.0.2"
+    "remark-html": "11.0.2",
+    "sass": "^1.32.8",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.3"
   },
   "devDependencies": {
     "postcss-flexbugs-fixes": "4.2.1",
-    "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.4.6"
+    "postcss-preset-env": "^6.7.0"
   },
   "license": "MIT"
 }
