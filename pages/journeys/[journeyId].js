@@ -1,4 +1,4 @@
-import Layout from '@/components/layout'
+import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { baseUrl, fetchQuery } from '@/lib/api-fnf'
 import {Steps} from '@/components/Steps'
@@ -10,7 +10,7 @@ export default function Journey({ journey }) {
 
             <Breadcrumb>
                 <Breadcrumb.Section link>
-                    <Link href={`/home`}>
+                    <Link href={`/`}>
                         <a>Home</a>
                     </Link>
                 </Breadcrumb.Section>

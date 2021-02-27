@@ -1,4 +1,4 @@
-import Layout from '@/components/layout'
+import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { baseUrl, fetchQuery } from '@/lib/api-fnf'
 import {Journey} from '@/components/Journey'
@@ -13,7 +13,7 @@ export default function Map({ map }) {
 
             <Breadcrumb>
                 <Breadcrumb.Section link>
-                    <Link href={`/home`}>
+                    <Link href={`/`}>
                         <a>Home</a>
                     </Link>
                 </Breadcrumb.Section>
@@ -35,7 +35,7 @@ export default function Map({ map }) {
                 <Grid.Row columns={2}>
                     <Grid.Column>
                         <Header as='h2'>
-                            <Icon name={map.icon} size='massive' />
+                            <Icon name={map.icon}/>
                             <Header.Content>
                                 {map.name}
                                 <Header.Subheader>{map.title}</Header.Subheader>
@@ -54,9 +54,6 @@ export default function Map({ map }) {
             <div>
                 <Journeys journeys={map.journeys} mapName={map.name}/>
             </div>
-
-            <br/><br/>
-
 
 
 

@@ -1,14 +1,14 @@
-import Layout from '@/components/layout'
+import Layout from '@/components/Layout'
 import { fetchQuery } from '@/lib/api-fnf'
 import {Header, Breadcrumb, Divider} from 'semantic-ui-react'
 import React from "react";
 import Link from 'next/link'
 import { Maps } from '@/components/Maps'
-
+import { SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/constants'
 
 export default function Home({ maps }) {
     return (
-        <Layout>
+        <Layout title={SITE_NAME} description={SITE_TITLE}>
             <Breadcrumb>
                 <Breadcrumb.Section link>
                     <Link href={`/home`}>

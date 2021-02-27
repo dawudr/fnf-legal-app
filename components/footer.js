@@ -1,64 +1,84 @@
 import { SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/constants'
-import {Container, Header} from 'semantic-ui-react'
+import React from 'react'
+import {Container, Divider, Grid, Header, List, Segment,} from 'semantic-ui-react'
 import Link from 'next/link'
 
 export default function Footer() {
   return (
-      <footer className="govuk-footer app-footer app-footer--full" role="contentinfo">
-          <Container>
-          <div className="app-width-container">
+      <footer>
+      <Segment vertical>
+          <Container textAlign='center'>
+              <Divider section />
 
-                  <div className="govuk-footer__meta">
-                      <div className="govuk-footer__meta-item govuk-footer__meta-item--grow">
+              <Grid divided stackable>
+                  <Grid.Column width={3}>
+                      <Header as='h4' content='FNF' />
+                      <List link>
+                          <List.Item as='a'>
 
-                          <h2 className="govuk-visually-hidden">Support links</h2>
+                              <Link href="https://fnf.org.uk/">
+                                  Families need Fathers main site
+                              </Link>
 
-                          <ul className="govuk-footer__inline-list">
+                          </List.Item>
+                      </List>
+                  </Grid.Column>
+                  <Grid.Column width={3}>
+                      <Header as='h4' content='DAD.Info' />
+                      <List link>
+                          <List.Item as='a'>
 
-                              <li className="govuk-footer__inline-list-item">
-                                  <a className="govuk-footer__link" href="/accessibility">
-                                      Accessibility
-                                  </a>
-                              </li>
+                              <Link href="https://www.dad.info/">
+                                  DAD.Info - Because Dads Matter!
+                              </Link>
 
-                              <li className="govuk-footer__inline-list-item">
-                                  <a className="govuk-footer__link" href="/sitemap">
-                                      Sitemap
-                                  </a>
-                              </li>
+                          </List.Item>
+                      </List>
+                  </Grid.Column>
+                  <Grid.Column width={3}>
+                      <Header as='h4' content='Fegans' />
+                      <List link>
+                          <List.Item as='a'>
 
-                              <li className="govuk-footer__inline-list-item">
-                                  <a className="govuk-footer__link" href="/disclaimer">
-                                      Disclaimer
-                                  </a>
-                              </li>
+                              <Link href="https://www.fegans.org.uk/">
+                                  Counselling Children, Supporting Parents
+                              </Link>
 
-                              <li className="govuk-footer__inline-list-item">
-                                  <a className="govuk-footer__link" href="/privacy-policy">
-                                      Privacy policy
-                                  </a>
-                              </li>
+                          </List.Item>
+                      </List>
+                  </Grid.Column>
+                  <Grid.Column width={7}>
+                      <List link>
+                          <List.Item as='a'>
 
-                          </ul>
+                                  <Link href="/">
+                                      <Header as='h1' image='/images/120x80px-fnf-logo.png' content={SITE_NAME}/>
+                                  </Link>
+                                  © 2021 All Rights Reserved
 
+                          </List.Item>
+                      </List>
+                  </Grid.Column>
+              </Grid>
 
-                          <div className="govuk-footer__meta-custom">
-                              Built by the <a href="/design-system-team" className="govuk-footer__link">{SITE_NAME} team</a>
-                          </div>
+              <Divider section />
 
-                      </div>
-                      <div className="govuk-footer__meta-item">
-                          <Link href="/">
-                              <Header as='h1' image='/images/120x80px-fnf-logo.png' content={SITE_NAME}/>
-                          </Link>
-                          © 2021 All Rights Reserved
-                      </div>
-
-
-
-                  </div>
-          </div>
+              <List horizontal divided link size='small'>
+                  <List.Item as='a' href='#'>
+                      Site Map
+                  </List.Item>
+                  <List.Item as='a' href='#'>
+                      Contact Us
+                  </List.Item>
+                  <List.Item as='a' href='#'>
+                      Terms and Conditions
+                  </List.Item>
+                  <List.Item as='a' href='#'>
+                      Privacy Policy
+                  </List.Item>
+              </List>
           </Container>
+      </Segment>
       </footer>
       )
 

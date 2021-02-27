@@ -1,64 +1,64 @@
 import Link from 'next/link'
-import {Container} from 'semantic-ui-react'
+import { SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/constants'
+import {Container, Header, Menu} from 'semantic-ui-react'
+import React from "react";
+import { useState, useContext } from 'react'
+import UserContext from '@/components/UserContext';
 
 export default function Navbar() {
+
+    const activeItem = 'home'
+
+    const { user, signOut } = useContext(UserContext);
+
+    let button;
+    if (user != null && user != '') {
+        button = <Menu.Item name='Logout' active={activeItem === 'logout'} onClick={signOut}></Menu.Item>;
+    } else {
+        button = <Menu.Item><Link href="/signin">Login</Link></Menu.Item>;
+    }
+
     return (
 
-<nav className="app-navigation govuk-clearfix">
-    <Container>
-    <ul className="app-navigation__list app-width-container">
+        <Menu fixed='top' inverted>
+            <Container>
+                <Menu.Item as='a' header>
+                    <Link href="/">
+                        <Header as='h2' image='/images/120x80px-fnf-logo.png' content={SITE_NAME} color='yellow'/>
+                    </Link>
+                </Menu.Item>
 
-        <li className="app-navigation__list-item">
-            <Link href="/">
-                <a className="govuk-link govuk-link--no-visited-state app-navigation__link" data-topnav="Styles">
-                    Home
-                </a>
-            </Link>
-        </li>
+                {user != null && user != '' &&
+                <Menu.Item>
+                    <Link href="/maps/1">
+                        Child Access
+                    </Link>
+                </Menu.Item>
+                }
 
-        <li className="app-navigation__list-item">
-            <Link href="/maps/1">
-                <a className="govuk-link govuk-link--no-visited-state app-navigation__link" data-topnav="Styles">
-                    Child Access
-                </a>
-            </Link>
-        </li>
+                {user != null && user != '' &&
+                <Menu.Item>
+                    <Link href="/maps/3">
+                        Divorce
+                    </Link>
+                </Menu.Item>
+                }
 
-        <li className="app-navigation__list-item">
-            <Link href="/maps/3">
-                <a className="govuk-link govuk-link--no-visited-state app-navigation__link" data-topnav="Styles">
-                    Divorce
-                </a>
-            </Link>
-        </li>
+                {user != null && user != '' &&
+                <Menu.Item>
+                    <Link href="/blog">
+                        Guides
+                    </Link>
+                </Menu.Item>
+                }
 
-        <li className="app-navigation__list-item">
-            <Link href="/maps/15">
-                <a className="govuk-link govuk-link--no-visited-state app-navigation__link" data-topnav="Styles">
-                    Health &amp; Wellbeing
-                </a>
-            </Link>
-        </li>
-
-        <li className="app-navigation__list-item">
-            <Link href="/blog">
-                <a className="govuk-link govuk-link--no-visited-state app-navigation__link" data-topnav="Styles">
-                    Useful Information
-                </a>
-            </Link>
-        </li>
-
-        <li className="app-navigation__list-item">
-            <Link href="/">
-                <a className="govuk-link govuk-link--no-visited-state app-navigation__link" data-topnav="Styles">
-                    Contact us
-                </a>
-            </Link>
-        </li>
-
-    </ul>
-    </Container>
-</nav>
-
+                <Menu.Menu position='right'>
+                    <Menu.Item>
+                        <Header as='h2' content={SITE_TITLE} textAlign='right' inverted color='grey'/>
+                    </Menu.Item>
+                    {button}
+                </Menu.Menu>
+            </Container>
+        </Menu>
     )
 }

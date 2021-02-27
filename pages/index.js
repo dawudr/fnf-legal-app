@@ -1,175 +1,60 @@
-import Layout from '@/components/layout'
-import { SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/constants'
-import Link from 'next/link'
-import { fetchQuery } from '@/lib/api-fnf'
-import { Maps } from '@/components/Maps'
-import moment from 'moment'
+import Layout from '@/components/Layout'
+import {SITE_NAME, SITE_TITLE, SITE_URL} from '@/lib/constants'
+import {fetchQuery} from '@/lib/api-fnf'
+import {Maps} from '@/components/Maps'
+import React from "react";
+import Intro from '@/components/Intro';
+import {useState, useContext} from 'react'
+import UserContext from '@/components/UserContext';
+import {Header, Divider, Message, Form, Grid} from "semantic-ui-react";
 
-import {Message, Button, Icon, Divider, Grid, Image, Header, Container, Label} from 'semantic-ui-react'
+export default function Home({allMapsData}) {
 
-export default function Home({ allMapsData}) {
-
-    const meetingDate =  (moment(new Date()).get("isoWeekday") > moment(new Date()).isoWeekday("Monday") ?
-        moment(new Date()).day("monday").hours(18).minutes(30).format('dddd Do MMMM YYYY HH:mm') :
-        (moment(new Date()).get("isoWeekday") < moment(new Date()).isoWeekday("Wednesday") ?
-            moment(new Date()).day("wednesday").hours(19).minutes(0).format('dddd Do MMMM YYYY HH:mm') :
-            moment(new Date()).day("saturday").hours(10).minutes(30).format('dddd Do MMMM YYYY HH:mm')));
+    const [search, setSearch] = useState('');
+    const {user} = useContext(UserContext)
 
     return (
         <>
-        <Layout>
-            <main id="main-content" role="main">
-                &nbsp;
-            <Message info size='huge'>
-                <Message.Header>Self Help Pages</Message.Header>
-                <p>Use these self help pages as guidance
-                    to help you through the court process.
-                    Ensure you have completed each of the steps. Please ask for help at the FNF
-                    meetings if you are stuck and need more advice.</p>
+            <Layout title={SITE_NAME} description={SITE_TITLE}>
+                <main id="main-content" role="main">
+                    {user != null && user != '' &&
+                    <Header textAlign='left'>
+                        Hello, <strong>{user}</strong>...
+                    </Header>
+                    }
+                    <Intro isLoggedIn={user != null && user != ''}/>
 
-                <Link href={`/home`}>
-                    <Button primary>
-                        Get started
-                        <Icon name='right chevron' />
-                    </Button>
-                </Link>
-            </Message>
-
-            <Message negative size='huge'>
-                <Message.Header>Next meeting</Message.Header>
-                <Message.Content>
-                Weekly Online Event (Zoom - By Invite only) - <br/>
-                    <Label as='a'  color='red' image size='large'>
-                        <Icon name='calendar outline' />{meetingDate}
-                    </Label>
-                    <Container textAlign='right'>
-                    <Link href="">
-                        <Button primary>
-                            Register
-                            <Icon name='right chevron' />
-                        </Button>
-                    </Link>
-                    </Container>
-                </Message.Content>
-            </Message>
-
-
-
-
-
-            <Maps maps={allMapsData}/>
-
-
-
-
-            <Message>
-                <Message.Header></Message.Header>
-
-                <Grid>
-                    <Grid.Row columns={2}>
-                        <Grid.Column>
-                            <Header as='h2'>Community</Header>
-                            <p>
-                                The Harrow FNF self help is for everyone, with a strong community sitting
-                                behind it. It brings together parents where you can share and talk through
-                                your situation with others in similar circumstances and be with other people
-                                who know how you feel and can give you ideas.
-
-                                You can contribute to Harrow FNF by:
-                            </p>
-
-                            <ul>
-                                <li>
-                                    <Link href="/">
-                                        <a>Participating in the forums and group chats</a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/">
-                                        <a>Helping us write more guides to help others</a>
-                                    </Link>
-                                </li>
-                            </ul>
+                    {user != null && user != '' &&
+                    <>
+                        <Message>
+                            <Message.Header>
+                                <Header as='h3'>Self Help Pages</Header>
+                            </Message.Header>
+                                <Form className='attached fluid'>
+                                    <Form.Group widths='equal'>
+                                        <Form.Input
+                                            fluid
+                                               label='Search by topic or keyword'
+                                               icon='search'
+                                               placeholder='Search...'
+                                               value={search}
+                                               onChange={e => setSearch(e.currentTarget.value)}
+                                        />
+                                    </Form.Group>
+                                </Form>
 
                             <Divider/>
+                            <Maps maps={allMapsData.filter(map => map.name.toLowerCase().includes(search.toLowerCase()))}/>
+                        </Message>
+                    </>
+                    }
 
-                            <Header as='h2'>Online</Header>
-                            <Message success>
-                                <Message.Header>Social forums</Message.Header>
-                                <Message.Content>
-                                    Meet other parents on our Whatapps group (Whatapps - By Invite only) &nbsp;
-                                    <br/>
-
-                                    <Container textAlign='right'>
-                                    <Link href="">
-                                        <Button secondary>
-                                            Register
-                                            <Icon name='right chevron' />
-                                        </Button>
-                                    </Link>
-                                    </Container>
-                                </Message.Content>
-                            </Message>
-
-                        </Grid.Column>
-                        <Grid.Column>
-                            <Header as='h2'>Success Stories</Header>
-
-                                Hear the success stories of parents who have ended up with the best
-                                outcomes and see the parent we have helped reunited with their children.
-                            <Image src='/images/family-cartoon.png' alt="Success stories" size='medium' centered />
-
-                            <Link href="">
-                                <Button secondary floated='right'>
-                                    Browse stories
-                                    <Icon name='right chevron' />
-                                </Button>
-                            </Link>
-                        </Grid.Column>
-                    </Grid.Row>
-
-                    <Grid.Row columns={1}>
-                        <Grid.Column>
-                            <Divider/>
-                            <Header as='h2'>Related resources:</Header>
-                        </Grid.Column>
-                    </Grid.Row>
-
-                    <Grid.Row columns={4}>
-                        <Grid.Column>
-                            <Header as='h3'>FNF</Header>
-                            <Link href="https://fnf.org.uk/">
-                            <p>Families need Fathers main site</p>
-                            </Link>
-                        </Grid.Column>
-                        <Grid.Column>
-                            <Header as='h3'>DAD.Info</Header>
-                            <Link href="https://www.dad.info/">
-                            <p>DAD.Info - Because Dads Matter!</p>
-                            </Link>
-                        </Grid.Column>
-                        <Grid.Column>
-                            <Header as='h3'>NSPCC</Header>
-                            <Link href="https://www.nspcc.org.uk">
-                            <p>National Society for the Prevention of Cruelty to Children</p>
-                            </Link>
-                        </Grid.Column>
-                        <Grid.Column>
-                            <Header as='h3'>Fegans</Header>
-                            <Link href="https://www.fegans.org.uk/">
-                                <p>Councelling Children, Supporting Parents</p>
-                            </Link>
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-
-            </Message>
-&nbsp;
-            </main>
-        </Layout>
+                </main>
+            </Layout>
         </>
     )
 }
+
 
 export async function getStaticProps() {
     // const mapsData = await fetchQuery('maps')

@@ -13,7 +13,7 @@ export function Maps({ maps }) {
                     &nbsp;
                     <Header icon>
                         <Container>
-                            <Icon name={map.icon} size='big'/>
+                            <Icon name={map.icon}/>
                             {map.name}
                         </Container>
                         <Header.Subheader>
