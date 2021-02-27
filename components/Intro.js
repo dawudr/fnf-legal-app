@@ -21,12 +21,7 @@ export default function Intro({isLoggedIn}) {
 
     return (
         <>
-
-
-            <Message>
-                <Message.Header>
-                    <Header as='h3'> Welcome to our site!</Header>
-                </Message.Header>
+            <Header as='h3'> Welcome to our site!</Header>
                 <Grid>
                     <Grid.Row columns={1}>
                         <Grid.Column>
@@ -37,19 +32,41 @@ export default function Intro({isLoggedIn}) {
                                 meetings if you are stuck and need more advice.
                             </p>
 
-                            <Container textAlign='right'>
+                        </Grid.Column>
+                    </Grid.Row>
 
-                                {button}
+                    <Grid.Row columns={1}>
+                        <Grid.Column>
 
-                            </Container>
-                            <Divider/>
+                            <Message negative>
+                                <Message.Header>
+                                    <Grid>
+                                    <Grid.Row columns={2}>
+                                        <Grid.Column width={14}>
+                                            <Header as='h3'>Weekly meeting ( Every Monday 7pm, Wednesday 6.30pm, Saturday 10.30am - By Invite only)</Header>
+                                            Next Online Zoom Event - &nbsp;
+                                            <Label as='a' image size='large'>
+                                                <Icon name='calendar outline'/>{meetingDate}
+                                            </Label>
+                                        </Grid.Column>
+                                        <Grid.Column width={2}>
+                                                {button}
+                                        </Grid.Column>
+                                    </Grid.Row>
+                                    </Grid>
+                                </Message.Header>
+                            </Message>
+
                         </Grid.Column>
                     </Grid.Row>
 
                     <Grid.Row columns={2}>
-                        <Grid.Column>
+                        <Grid.Column stretched>
+                            <Message>
+                                <Message.Header>
                             <Header as='h3'>Community</Header>
-                            <p>
+                                </Message.Header>
+                                <p>
                                 The Harrow FNF self help is for everyone, with a strong community sitting
                                 behind it. It brings together parents where you can share and talk through
                                 your situation with others in similar circumstances and be with other people
@@ -70,13 +87,14 @@ export default function Intro({isLoggedIn}) {
                                     </Link>
                                 </li>
                             </ul>
+                            </Message>
 
-                            <Divider/>
-
-                            <Header as='h3'>Online</Header>
                             <Message success>
-                                <Message.Header>Social forums</Message.Header>
+                                <Message.Header>
+                                    <Header as='h3'>Online</Header>
+                                </Message.Header>
                                 <Message.Content>
+                                    <Header as='h4'>Social forums</Header>
                                     Meet other parents on our Whatapps group (By Invite only) &nbsp;
 
                                     <Container textAlign='right'>
@@ -89,41 +107,25 @@ export default function Intro({isLoggedIn}) {
                             </Message>
 
                         </Grid.Column>
-                        <Grid.Column>
+                        <Grid.Column stretched>
+                            <Message>
+                                <Message.Header>
                             <Header as='h3'>Success Stories</Header>
-
+                                </Message.Header>
                             Hear the success stories of parents who have ended up with the best
                             outcomes and see the parent we have helped reunited with their children.
-                            <Image src='/images/family-cartoon.png' alt="Success stories" size='medium'
+                            <Image src='/images/family-cartoon-diversity.png' alt="Success stories" size='huge'
                                    centered/>
 
                             <Container textAlign='right'>
                                 {button}
                             </Container>
 
-                        </Grid.Column>
-                    </Grid.Row>
-
-                    <Grid.Row columns={1}>
-                        <Grid.Column>
-
-                            <Message negative>
-                                <Message.Header>
-                                    <Header as='h3'>Next meeting</Header>
-                                    Weekly Online Zoom Event (By Invite only) - &nbsp;
-                                    <Label as='a' image size='large'>
-                                        <Icon name='calendar outline'/>{meetingDate}
-                                    </Label>
-                                    <Container textAlign='right'>
-                                        {button}
-                                    </Container>
-                                </Message.Header>
                             </Message>
 
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
-            </Message>
         </>
     )
 }
