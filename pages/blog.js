@@ -6,9 +6,9 @@ import { getAllPostsForHome } from '@/lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '@/lib/constants'
 import LayoutBlog from "@/components/layout-blog";
-import Header from '@/components/customheader';
 import Alert from '@/components/alert'
 import Navbar from '@/components/navbar'
+import {Header} from "semantic-ui-react";
 
 export default function Blog({ allPosts, preview}) {
   const heroPost = allPosts[0]

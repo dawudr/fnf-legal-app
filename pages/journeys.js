@@ -1,11 +1,11 @@
-import Layout from '@/components/layout'
+import Layout from '@/components/Layout'
 import { Journey } from '@/components/Journey'
 import { fetchQuery } from '@/lib/api-fnf'
 
 export default function Journeys({ map }) {
     return (
     <>
-        <Layout>
+        <Layout title={map.name} description={map.title}>
 
             <main className="govuk-main-wrapper app-main-class" id="main-content" role="main">
                 <h1 className="govuk-heading-xl">Journeys</h1>

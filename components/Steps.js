@@ -71,7 +71,7 @@ export function Steps({steps}) {
                 </Grid.Row>
             </Grid>
             <Grid>
-                <Grid.Row>
+                <Grid.Row columns={2}>
                     <Grid.Column>
                         <Progress percent={percent} indicating/>
                     </Grid.Column>
