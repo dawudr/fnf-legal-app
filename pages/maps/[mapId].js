@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { baseUrl, fetchQuery } from '@/lib/api-fnf'
 import {Journey} from '@/components/Journey'
 import React from 'react'
-import {Header, Icon, Breadcrumb, Divider, Grid} from 'semantic-ui-react'
+import {Header, Icon, Breadcrumb, Divider, Grid, Container} from 'semantic-ui-react'
 import {Journeys} from '@/components/Journeys'
 
 export default function Map({ map }) {
@@ -29,7 +29,7 @@ export default function Map({ map }) {
                 <Breadcrumb.Section active>Stages</Breadcrumb.Section>
             </Breadcrumb>
 
-            <br/>&nbsp;<br/>&nbsp;
+            <br/>&nbsp;
 
             <Grid divided='vertically'>
                 <Grid.Row columns={2}>
@@ -43,18 +43,22 @@ export default function Map({ map }) {
                         </Header>
                     </Grid.Column>
                     <Grid.Column>
-                        <Header as='h3' content={map.description} textAlign='right'/>
+                        <Header as='h3' content={map.heading} textAlign='right'/>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
+            <Divider />
+
+            <Container fluid>
+                {map.description}
+            </Container>
+
 
             <Header as='h1'>Where do you need to start?</Header>
-            <Divider />
 
             <div>
                 <Journeys journeys={map.journeys} mapName={map.name}/>
             </div>
-
 
 
         </Layout>

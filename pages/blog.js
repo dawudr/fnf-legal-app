@@ -1,7 +1,6 @@
 import {Container} from 'semantic-ui-react'
 import MoreStories from '@/components/more-stories'
 import HeroPost from '@/components/hero-post'
-import Intro from '@/components/intro'
 import { getAllPostsForHome } from '@/lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '@/lib/constants'
@@ -22,8 +21,7 @@ export default function Blog({ allPosts, preview}) {
           <Header />
         <Navbar/>
         <Alert preview={preview} />
-        <Container>
-          <Intro />
+        <Container style={{marginTop: '5em'}}>
           {heroPost && (
             <HeroPost
               title={heroPost.title}

@@ -21,16 +21,15 @@ export default function Intro({isLoggedIn}) {
 
     return (
         <>
-            <Header as='h3'> Welcome to our site!</Header>
                 <Grid>
                     <Grid.Row columns={1}>
                         <Grid.Column>
 
-                            <p>Use these self help pages as guidance
+                            <Header as='h4'>Use these self help pages as guidance
                                 to help you through the court process.
                                 Ensure you have completed each of the steps. Please ask for help at the FNF
                                 meetings if you are stuck and need more advice.
-                            </p>
+                            </Header>
 
                         </Grid.Column>
                     </Grid.Row>
@@ -68,9 +67,9 @@ export default function Intro({isLoggedIn}) {
                                 </Message.Header>
                                 <p>
                                 The Harrow FNF self help is for everyone, with a strong community sitting
-                                behind it. It brings together parents where you can share and talk through
+                                behind it. It brings parents together where you can share and talk through
                                 your situation with others in similar circumstances and be with other people
-                                who know how you feel and can give you ideas.
+                                who know how you feel and can give you ideas for journey in the family courts.
 
                                 You can contribute to Harrow FNF by:
                             </p>

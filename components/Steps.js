@@ -16,7 +16,7 @@ export function Steps({steps}) {
     const isActive = (index) => (index == currentPage)
     const isCompleted = (index) => (index < currentPage)
     const isBackDisabled = (currentPage == 0)
-    const isNextDisabled = (currentPage >= arrayLength - 1)
+    const isNextDisabled = (currentPage >= arrayLength -1)
     const percent = (1/arrayLength) * 100 + (currentPage/arrayLength) * 100
 
     return (
@@ -47,14 +47,14 @@ export function Steps({steps}) {
                 {
                     steps.map((stepsArray, index) => (
                         <Step key={index} active={isActive(index)} completed={isCompleted(index)}>
-                            <Icon name={stepsArray.id}/>
+                            <Icon name={stepsArray.step.icon}/>
                             <Step.Content>
                                 <Step.Title>
-                                    <Link href={`/steps/${stepsArray.id}`}>
-                                        <a>{index + 1}.{stepsArray.name}</a>
+                                    <Link href={`/steps/${stepsArray.step.id}`}>
+                                        <a>{index + 1}.{stepsArray.step.name}</a>
                                     </Link>
                                 </Step.Title>
-                                <Step.Description>{stepsArray.name}</Step.Description>
+                                <Step.Description>{stepsArray.step.title}</Step.Description>
                             </Step.Content>
                         </Step>
                     ))
@@ -65,7 +65,7 @@ export function Steps({steps}) {
 
                 <Grid.Column>
                     <Segment attached>
-                        <Stepbody step={currentStep}/>
+                        <Stepbody step={currentStep.step}/>
                     </Segment>
                 </Grid.Column>
                 </Grid.Row>

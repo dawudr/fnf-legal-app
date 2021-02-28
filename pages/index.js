@@ -6,7 +6,7 @@ import React from "react";
 import Intro from '@/components/Intro';
 import {useState, useContext} from 'react'
 import UserContext from '@/components/UserContext';
-import {Header, Divider, Message, Form, Grid} from "semantic-ui-react";
+import {Header, Divider, Message, Form, Grid, Container} from "semantic-ui-react";
 
 export default function Home({allMapsData}) {
 
@@ -17,11 +17,16 @@ export default function Home({allMapsData}) {
         <>
             <Layout title={SITE_NAME} description={SITE_TITLE}>
                 <main id="main-content" role="main">
-                    {user != null && user != '' &&
-                    <Header textAlign='left'>
-                        Hello, <strong>{user}</strong>...
+                    &nbsp;
+                    <Header>
+                        { user != null && user != '' &&
+                            <>
+                            Hello, <strong>{user}</strong>. &nbsp;
+                            </>
+                        }
+                        Welcome to our site!
                     </Header>
-                    }
+
                     <Intro isLoggedIn={user != null && user != ''}/>
 
                     {user != null && user != '' &&
@@ -50,6 +55,7 @@ export default function Home({allMapsData}) {
                     }
 
                 </main>
+
             </Layout>
         </>
     )

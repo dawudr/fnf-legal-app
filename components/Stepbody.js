@@ -8,8 +8,8 @@ export function Stepbody({step}) {
         <>
             <Container fluid>
                 <Header as='h2'>{step.name}</Header>
+
                 <p>{step.description}</p>
-                <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
 
                 <Container textAlign='right'>
                     <Link href={`/journeys/${step.id}`}>

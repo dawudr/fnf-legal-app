@@ -23,10 +23,10 @@ export default function Journey({ journey }) {
                     </Link>
                 </Breadcrumb.Section>
                 <Breadcrumb.Divider icon='right arrow' />
-                <Breadcrumb.Section active>Steps</Breadcrumb.Section>
+                <Breadcrumb.Section active>Action</Breadcrumb.Section>
             </Breadcrumb>
 
-            <br/>&nbsp;<br/>&nbsp;
+            <br/>&nbsp;
 
             <Grid divided='vertically'>
                 <Grid.Row columns={2}>
@@ -40,17 +40,17 @@ export default function Journey({ journey }) {
                         </Header>
                     </Grid.Column>
                     <Grid.Column>
-                        <Header as='h3' content={journey.id} textAlign='right'/>
+                        <Header as='h3' content={journey.heading} textAlign='right'/>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
+            <Divider />
 
             <Container fluid>
                 {journey.description}
             </Container>
 
-            <Header as='h1'>How do I do it?</Header>
-            <Divider />
+            <Header as='h1'>What you need to do?</Header>
 
 
             <Steps steps={journey.steps}/>
