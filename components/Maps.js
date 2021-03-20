@@ -5,8 +5,12 @@ import Link from 'next/link'
 
 
 export function Maps({ maps }) {
+    const arrayLength = maps.length
+
     return (
-        <Card.Group itemsPerRow={3}>
+        (arrayLength > 0 )?
+
+            <Card.Group itemsPerRow={3}>
         {
             maps.map((map) => (
                 <Card key={map.id}>
@@ -29,7 +33,7 @@ export function Maps({ maps }) {
                         {/*{map.title}*/}
                         {/*</Card.Meta>*/}
                         <Card.Description>
-                            {map.description}
+                            {map.heading}
                         </Card.Description>
                     </Card.Content>
                     <Card.Content extra>
@@ -47,5 +51,8 @@ export function Maps({ maps }) {
             ))
         }
         </Card.Group>
+
+            :
+            <p>Error: No items defined.</p>
     )
 }
