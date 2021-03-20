@@ -12,7 +12,7 @@ export function Stepbody({step}) {
                 <p>{step.description}</p>
 
                 <Container textAlign='right'>
-                    <Link href={`/journeys/${step.id}`}>
+                    <Link href={`/steps/${step.id}`}>
                         <a>
                             <Button>
                                 More

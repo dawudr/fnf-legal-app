@@ -14,7 +14,7 @@ export function Steps({steps}) {
     const next = () => setCurrentPage((prev) => prev + 1)
     const prev = () => setCurrentPage((prev) => prev - 1)
     const isActive = (index) => (index == currentPage)
-    const isCompleted = (index) => (index < currentPage)
+    const isCompleted = (index) => (index == currentPage)? false : (index < currentPage +1 )
     const isBackDisabled = (currentPage == 0)
     const isNextDisabled = (currentPage >= arrayLength -1)
     const percent = (1/arrayLength) * 100 + (currentPage/arrayLength) * 100
@@ -42,7 +42,6 @@ export function Steps({steps}) {
             <Grid columns={2}>
                 <Grid.Row stretched>
                 <Grid.Column>
-
             <Step.Group fluid vertical>
                 {
                     steps.map((stepsArray, index) => (

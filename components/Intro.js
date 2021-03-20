@@ -2,15 +2,15 @@ import {Button, Container, Header, Icon, Image, Label, Message, Grid} from "sema
 import Link from 'next/link'
 import moment from 'moment'
 import React from "react";
-import {Divider} from "semantic-ui-react";
 
 export default function Intro({isLoggedIn}) {
 
     const meetingDate = (moment(new Date()).get("isoWeekday") < moment(new Date()).isoWeekday("Monday") ?
-        moment(new Date()).day("monday").add(1, 'week').hours(18).minutes(30).format('dddd Do MMMM YYYY HH:mm') :
         (moment(new Date()).get("isoWeekday") < moment(new Date()).isoWeekday("Wednesday") ?
             moment(new Date()).day("saturday").hours(10).minutes(30).format('dddd Do MMMM YYYY HH:mm') :
-            moment(new Date()).day("wednesday").hours(19).minutes(0).format('dddd Do MMMM YYYY HH:mm')));
+            moment(new Date()).day("wednesday").hours(19).minutes(0).format('dddd Do MMMM YYYY HH:mm')) :
+            moment(new Date()).day("monday").add(1, 'week').hours(18).minutes(30).format('dddd Do MMMM YYYY HH:mm')
+    );
 
     let button;
     if (isLoggedIn) {
