@@ -9,7 +9,6 @@ Make sure that the local Strapi server is still running at http://localhost:1337
 ```bash
 npm install
 npm run dev
-
 ```
 
 App will run on  http://localhost:3000/
