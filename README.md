@@ -2,6 +2,19 @@
 
 Front end app to render data returned from Strapi Api.
 
+### Home Page
+
+![alt text](home.jpg?raw=true)
+
+### Journeys
+
+![alt text](home-journeys.jpg?raw=true)
+
+### Steps 
+
+![alt text](home-steps.jpg?raw=true)
+
+
 ## Quickstart
 
 Make sure that the local Strapi server is still running at http://localhost:1337. Inside the Next.js app directory, run:
